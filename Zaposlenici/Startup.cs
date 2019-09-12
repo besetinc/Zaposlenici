@@ -12,6 +12,7 @@ using Microsoft.EntityFrameworkCore;
 using Zaposlenici.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Zaposlenici.Models;
 
 namespace Zaposlenici
 {
@@ -41,6 +42,9 @@ namespace Zaposlenici
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            services.AddDbContext<zaposlenikContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("zaposlenikContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
