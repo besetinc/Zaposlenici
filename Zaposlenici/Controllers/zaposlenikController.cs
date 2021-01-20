@@ -32,18 +32,6 @@ namespace Zaposlenici.Controllers
             }
             return View(await zapl.AsNoTracking().ToListAsync());
         }
-        /*public async Task<IActionResult> Index(string searchString)
-        {
-            ViewData["CurrentFilter"] = searchString;
-            var club = from cl in _context.Tablica
-                       select cl;
-            if (!String.IsNullOrEmpty(searchString))
-            {
-                club = club.Where(cl => cl.ClubName.Contains(searchString));
-            }
-            return View(await club.AsNoTracking().ToListAsync());
-        }
-        */
 
         // GET: zaposlenik/Details/5
         public async Task<IActionResult> Details(int? id)
